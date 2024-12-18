@@ -43,5 +43,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/final-main:latest
+            ${{ secrets.DOCKER_USERNAME }}/final-main:${{ github.ref_name }}
